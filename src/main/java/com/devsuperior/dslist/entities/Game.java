@@ -10,11 +10,11 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 
-@Entity //tranforma esta classe em um objeto relacional.. ele faz o mapeamento para o banco (ORM)
-@Table(name = "tb_game") //muda o nome de game para tb_game no banco de dados
+@Entity
+@Table(name = "tb_game")
 public class Game {
 	
-	@Id //trnaforma o id na primary key do banco
+	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String title;
@@ -25,7 +25,10 @@ public class Game {
 	private String platforms;
 	private Double score;
 	private String imgUrl;
+	
+	@Column(columnDefinition = "TEXT")
 	private String shortDescription;
+	@Column(columnDefinition = "TEXT")
 	private String longDescription;
 	
 	public Game() {}
